@@ -21,4 +21,6 @@ def index(request):
     return render(request,'category_table.html',context)
 
 def pro_list(request,pk):
-    return render(request,'pro_list.html')
+    product = Products.objects.filter(category=pk)
+    context = {'product':product}
+    return render(request,'pro_list.html',context)
