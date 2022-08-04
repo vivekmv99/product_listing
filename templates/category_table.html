@@ -17,14 +17,15 @@
     </tr>
   </thead>
   <tbody>
-
+  {% for i in category %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><a href=""></a></td>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.pro_count}}</td>
+      <td>{{i.pro_avg.price__avg}}</td>
+      <td><a href="{% url 'pro_list' i.id %}">click</a></td>
     </tr>
+  {% endfor %}
 
   </tbody>
 </table>
